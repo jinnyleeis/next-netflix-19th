@@ -1,4 +1,6 @@
+"use client";
+
 export default function Main() {
 	
-	return <></>
+	return <div>main_page</div>
 }
