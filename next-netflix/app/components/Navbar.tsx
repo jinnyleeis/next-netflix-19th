@@ -47,7 +47,7 @@ const NavItems:NavItemsType[] = [
 ]
 
   return (
-    <div className='flex'>
+    <div>
         {NavItems.map(({ id, title, src, alt, link }) => (
                 <div key={id}>
                     <Image
