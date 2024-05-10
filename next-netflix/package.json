@@ -1,5 +1,5 @@
 {
-  "name": "my-app",
+  "name": "next-netflix",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "babel-plugin-styled-components": "^2.1.4",
-    "next": "14.2.3",
+    "next": "^14.2.3",
     "prettier-plugin-tailwindcss": "^0.5.14",
     "react": "^18",
     "react-dom": "^18",

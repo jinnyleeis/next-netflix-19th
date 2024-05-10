@@ -1,8 +1,16 @@
+import Header from "../components/Header";
+import Navbar from "../components/Navbar";
+import Controller from "../components/Controller";
+import Carousel from "../components/Carousel";
+
+
 export default function Main() {
   return (
-    <>
-      <div className="text-base">main_page</div>
-      <h1 className="font-sans  text-base font-bold underline">Hello world!</h1>
-    </>
+    <div>
+      <Header/>
+      <Carousel/>
+      <Controller/>
+      <Navbar/>
+    </div>
   );
 }
