@@ -49,7 +49,7 @@ export default function Main() {
   }
 
   return (
-    <div className="flex h-[812px] w-[375px] flex-col">
+    <div className="h-[812px] w-[375px] overflow-y-auto">
       <Header />
       <Carousel movies={movies[0]} />
       <Controller />

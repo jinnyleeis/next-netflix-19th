@@ -22,14 +22,14 @@ export const Carousel: React.FC<CarouselProps> = ({ movies }) => {
 
   return (
     <div className="w-[375px] h-[415px] relative">
-      <div className='size-full'>
+      <div className='w-[375px] h-[415px]'>
         {movies.length > 0 && (
           <Image
             src={`https://image.tmdb.org/t/p/original${movies[currentMovieIndex].backdrop_path}`}
             alt={movies[currentMovieIndex].title}
             layout="fill" 
             objectFit="cover" // 이미지가 잘리지 않고 채워지도록
-            priority
+            //priority
           />
         )}
       </div>
