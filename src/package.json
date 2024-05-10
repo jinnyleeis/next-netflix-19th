@@ -10,6 +10,7 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@lottiefiles/lottie-player": "^2.0.4",
     "babel-plugin-styled-components": "^2.1.4",
     "next": "^14.2.3",
     "node-fetch": "^3.3.2",
