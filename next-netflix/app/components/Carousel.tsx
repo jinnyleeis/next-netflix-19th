@@ -1,43 +1,38 @@
-//메인화면에서 화면 바뀌는 메인 이미지!
-//Image 태그 안에 api로 받아온 이미지 계속 바뀌게끔
-
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { Movie } from '../types/movies';
-import styles from './Carousel.module.css';
 
-/*function Carousel() {
-  return (
-    <div className="w-[375px] h-[415px]">Carousel</div>
-  )
-  */
 interface CarouselProps {
   movies: Movie[];
 }
 
 export const Carousel: React.FC<CarouselProps> = ({ movies }) => {
+  const [currentMovieIndex, setCurrentMovieIndex] = useState(0);
+
+  useEffect(() => {
+    // 일정 시간마다 currentMovieIndex를 업데이트하여 다음 영화 이미지를 보여줌
+    const interval = setInterval(() => {
+      setCurrentMovieIndex((prevIndex) =>
+        prevIndex === movies.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 5000); // 5초마다 변경, 변경하려는 시간 간격에 맞게 조정 가능
+
+    // 컴포넌트가 언마운트되면 interval을 정리하여 메모리 누수를 방지
+    return () => clearInterval(interval);
+  }, [movies.length]); // movies 배열의 길이가 변경될 때마다 useEffect가 호출되도록 설정
+
   return (
-    <div className={styles.scrollContainer}>
-      {movies.map((movie: Movie) => {
-        const imageUrl = `https://image.tmdb.org/t/p/original${movie.backdrop_path}`;
-
-        // backdrop_path가 없으면 아무 것도 렌더링x
-        if (!movie.backdrop_path) {
-          return null;
-        }
-
-        return (
-          <div className={styles.imageContainer} key={movie.id}>
-            <Image
-              src={imageUrl}
-              alt={movie.title}
-              width={1280}
-              height={2001}
-              layout="responsive"
-              priority
-            />
-          </div>
-        );
-      })}
+    <div className="w-[375px] h-[415px] relative">
+      {movies.length > 0 && (
+        <Image
+          src={`https://image.tmdb.org/t/p/original${movies[currentMovieIndex].backdrop_path}`}
+          alt={movies[currentMovieIndex].title}
+          width={375}
+          height={415}
+          layout="responsive"
+          priority
+        />
+      )}
     </div>
   );
 };

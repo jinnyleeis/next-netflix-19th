@@ -4,7 +4,7 @@ import logo from '../../public/icons/logos_netflix-icon.svg'
 function Header() {
 const Menu = ['Tv Shows' ,'Movies', 'My List']
   return (
-    <div className='fixed top-[24px] flex justify-center items-center w-[375px] h-[57px]'>
+    <div className='fixed top-[24px] flex justify-center items-center w-[375px] h-[57px] z-50'>
         <div className='mr-[25px]'>
             <Image
             src = {logo}

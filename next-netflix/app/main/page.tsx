@@ -17,17 +17,14 @@ export default function Main() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const apis = ['/api1', '/api2', '/api3', '/api4'];
-        const responses = await Promise.all(apis.map((api) => fetch(api)));
-        const data = await Promise.all(
-          responses.map((response) => {
-            if (!response.ok) {
-              throw new Error(`HTTP error! Status: ${response.status}`);
-            }
-            return response.json();
-          }),
-        );
-        setMovies(data);
+        // 단일 API만 요청하도록 수정
+        const response = await fetch('/api1');
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const data = await response.json();
+        // 데이터를 배열 안에 넣어줌
+        setMovies([data]);
         setLoading(false);
       } catch (error) {
         console.error('Failed to load movies:', error);
@@ -49,11 +46,9 @@ export default function Main() {
   }
 
   return (
-    <div>
+    <div className='flex flex-col w-[375px] h-[812px]'>
       <Header />
-      {movies.map((movieList, index) => (
-        <Carousel key={index} movies={movieList} />
-      ))}
+      <Carousel movies={movies[0]} />
       <Controller />
       <Navbar />
     </div>
