@@ -1,10 +1,10 @@
-// app/main/page.tsx
-// app/main/page.tsx
 'use client';
+
 import Header from '../components/Header';
 import Navbar from '../components/Navbar';
 import Controller from '../components/Controller';
 import Carousel from '../components/Carousel';
+import MovieList from '../components/MainLists';
 import { useEffect, useState } from 'react';
 import { Movie } from '../types/movies';
 
@@ -17,14 +17,17 @@ export default function Main() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // 단일 API만 요청하도록 수정
-        const response = await fetch('/api1');
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        const data = await response.json();
-        // 데이터를 배열 안에 넣어줌
-        setMovies([data]);
+        const apis = ['/api1', '/api2', '/api3', '/api4'];
+        const responses = await Promise.all(apis.map((api) => fetch(api)));
+        const data = await Promise.all(
+          responses.map((response) => {
+            if (!response.ok) {
+              throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+          }),
+        );
+        setMovies(data);
         setLoading(false);
       } catch (error) {
         console.error('Failed to load movies:', error);
@@ -36,7 +39,7 @@ export default function Main() {
     fetchData();
   }, []);
 
-  // 이거 대신 로딩중에 랜딤 페이지 보여주면 될듯
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -46,10 +49,13 @@ export default function Main() {
   }
 
   return (
-    <div className='flex flex-col w-[375px] h-[812px]'>
+    <div className="flex h-[812px] w-[375px] flex-col">
       <Header />
       <Carousel movies={movies[0]} />
       <Controller />
+      {movies.map((movieList, index) => (
+        <MovieList key={index} movies={movieList} />
+      ))}
       <Navbar />
     </div>
   );
