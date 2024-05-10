@@ -2,16 +2,9 @@ import { NextRequest, NextResponse } from 'next/server';
 
 const API_KEY = process.env.TMDB_API_KEY || '';
 
-// Function to fetch movies data from TMDB based on category
 async function fetchMoviesData(category: string, apiKey: string) {
-  const urlMap: { [key: string]: string } = {
-    nowPlaying: 'now_playing',
-    popular: 'popular',
-    topRated: 'top_rated',
-    upcoming: 'upcoming',
-  };
 
-  const url = `https://api.themoviedb.org/3/movie/${urlMap[category] || 'upcoming'}?api_key=${apiKey}`;
+  const url = `https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}`;
   const response = await fetch(url, { cache: 'force-cache' });
   const data = await response.json();
   if (!response.ok) {

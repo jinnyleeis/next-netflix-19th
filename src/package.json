@@ -1,5 +1,5 @@
 {
-  "name": "next-netflix",
+  "name": "src",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,10 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "vercel-deploy": "next build && next export",
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@lottiefiles/lottie-player": "^2.0.4",
     "babel-plugin-styled-components": "^2.1.4",
     "next": "^14.2.3",
     "node-fetch": "^3.3.2",
@@ -22,9 +22,9 @@
     "styled-components": "^6.1.9"
   },
   "devDependencies": {
-    "@types/node": "^20",
+    "@types/node": "20.12.11",
     "@types/node-fetch": "^2.6.11",
-    "@types/react": "^18",
+    "@types/react": "18.3.1",
     "@types/react-dom": "^18",
     "@types/react-slick": "^0.23.13",
     "autoprefixer": "^10.4.19",
@@ -33,6 +33,6 @@
     "postcss": "^8.4.38",
     "prettier": "^3.2.5",
     "tailwindcss": "^3.4.3",
-    "typescript": "^5"
+    "typescript": "5.4.5"
   }
 }
