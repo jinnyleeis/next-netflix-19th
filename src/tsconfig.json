@@ -27,7 +27,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "styles/_registry.tsx",
-    "app/**/*" 
+    "app/**/*"
   ],
   "exclude": ["node_modules"]
 }

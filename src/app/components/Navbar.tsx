@@ -49,7 +49,7 @@ const NavItems:NavItemsType[] = [
 
   return (
     <div className='fixed bottom-0'>
-    <div className='w-[375px] h-[48px] space-x-[46px] mb-0 flex items-center justify-center bg-[#121212]'>
+    <div className='w-[375px] h-[44px] space-x-[46px] mb-0 flex items-center justify-center bg-[#121212]'>
         {NavItems.map(({ id, title, src, alt, link }) => (
                 <div className='flex flex-col items-center' key={id}>
                     <Image

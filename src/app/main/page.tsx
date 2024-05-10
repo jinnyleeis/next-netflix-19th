@@ -8,12 +8,16 @@ import MovieList from '../components/MainLists';
 import { useEffect, useState } from 'react';
 import { Movie } from '../types/movies';
 
-
 export default function Main() {
   const [movies, setMovies] = useState<Movie[][]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-  const mainListsTitle = ['Now palying', 'popular', 'Top rated', 'upcoming'];
+  const mainListsTitle = [
+    'Previews',
+    'New Releases',
+    'Popular on Netflix ',
+    'Top 10 in Korea Today'
+  ];
 
   useEffect(() => {
     const fetchData = async () => {
@@ -40,7 +44,6 @@ export default function Main() {
     fetchData();
   }, []);
 
-
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -50,15 +53,19 @@ export default function Main() {
   }
 
   return (
-    <div className="h-[812px] w-[375px] overflow-y-auto">
+    <div className="h-[1012px] w-[375px] overflow-y-auto ">
       <Header />
       <Carousel movies={movies[0]} />
       <Controller />
       {movies.map((movieList, index) => (
-       <div key={index}>
-       <h2 className='text-[20.92px] font-bold ml-[16px] mt-[22px]'>{mainListsTitle[index]}</h2> 
-       <MovieList movies={movieList} />
-     </div>
+        <div key={index}>
+          <h2 className="ml-[16px] mt-[22px] text-[20.92px] font-bold">{mainListsTitle[index]}</h2>
+          <MovieList
+            movies={movieList}
+            itemClass={index === 0 ? 'rounded-full' : ''}
+            isCircular={index === 0}
+          />
+        </div>
       ))}
       <Navbar />
     </div>
