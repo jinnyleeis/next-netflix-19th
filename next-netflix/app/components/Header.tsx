@@ -17,7 +17,7 @@ const Menu = ['Tv Shows' ,'Movies', 'My List']
             {
                 Menu.map((menu) => {
                     return(
-                        <span className='font-normal text-base'key={menu}>
+                        <span className='font-normal text-header'key={menu}>
                             {menu}
                         </span>
                     )
