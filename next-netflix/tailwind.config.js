@@ -9,6 +9,15 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    fontSize: {
+      sm: ['8.2px', '30.4px'],
+      base: ['16px', '24px'],
+      lg: ['20px', '28px'],
+      xl: ['24px', '32px'],
+    },
+    colors: {
+      'grey': '#8C8787',
+    },
     extend: {},
   },
   plugins: [],
