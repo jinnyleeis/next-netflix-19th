@@ -2,14 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-body,
 html {
-  margin: 0;
-  padding: 0;
   width: 100%;
-  min-height: 100vh; /* 전체 화면 높이를 확보 */
-  display: flex;
-  flex-direction: column; /* 컨텐츠를 세로로 나열 */
+  height: 100%;
 }
 
 @font-face {

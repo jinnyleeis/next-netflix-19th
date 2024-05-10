@@ -17,7 +17,7 @@ export const Carousel: React.FC<CarouselProps> = ({ movies }) => {
       );
     }, 5000); // 5초마다 변경, 변경하려는 시간 간격에 맞게 조정 가능
 
-    // 컴포넌트가 언마운트되면 interval을 정리하여 메모리 누수를 방지
+    // 컴포넌트가 언마운트되면 interval을 정리
     return () => clearInterval(interval);
   }, [movies.length]); // movies 배열의 길이가 변경될 때마다 useEffect가 호출되도록 설정
 
