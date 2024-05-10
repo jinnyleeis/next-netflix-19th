@@ -13,6 +13,7 @@ export default function Main() {
   const [movies, setMovies] = useState<Movie[][]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const mainListsTitle = ['Now palying', 'popular', 'Top rated', 'upcoming'];
 
   useEffect(() => {
     const fetchData = async () => {
@@ -54,7 +55,10 @@ export default function Main() {
       <Carousel movies={movies[0]} />
       <Controller />
       {movies.map((movieList, index) => (
-        <MovieList key={index} movies={movieList} />
+       <div key={index}>
+       <h2 className='text-[20.92px] font-bold ml-[16px] mt-[22px]'>{mainListsTitle[index]}</h2> 
+       <MovieList movies={movieList} />
+     </div>
       ))}
       <Navbar />
     </div>

@@ -7,7 +7,7 @@ import Play from '../../public/icons/play.svg'
 
 function Controller() {
   return (
-    <div className= 'flex flex-col w-[375px] items-center'>
+    <div className= 'flex flex-col w-[375px] mb-[43px] items-center'>
         <div className='flex space-x-[5px] mb-[11px]'>
             <Image
              src={Top10} 
