@@ -1,0 +1,19 @@
+.scrollContainer {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.scrollContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.imageContainer {
+  flex: 0 0 auto; /* 너비 유지 */
+  width: 103px; /* 이미지 컨테이너 너비 */
+  height: 200px; /* 이미지 컨테이너 높이 */
+  scroll-snap-align: start; /* 스냅 위치를 시작점*/
+  text-align: center; /* 텍스트 가운데 */
+}
