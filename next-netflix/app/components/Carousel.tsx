@@ -3,7 +3,6 @@
 
 import Image from 'next/image';
 import { Movie } from '../types/movies';
-import img03 from '../../public/icons/back.png';
 import styles from './Carousel.module.css';
 
 /*function Carousel() {
@@ -36,7 +35,6 @@ export const Carousel: React.FC<CarouselProps> = ({ movies }) => {
               layout="responsive"
               priority
             />
-            <h3>{movie.title}</h3>
           </div>
         );
       })}
