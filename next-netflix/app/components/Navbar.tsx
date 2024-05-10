@@ -2,9 +2,10 @@ import { NavItemsType } from '../../types'
 import Image from 'next/image';
 import Home from '../../public/icons/home.svg'
 import Search from '../../public/icons/search.svg'
-import CommingSoon from '../../public/icons/comming-soon.svg'
+import CommingSoon from '../../public/icons/commingSoon.svg'
 import Download from '../../public/icons/download.svg'
-import Hamburger from '../../public/icons/hamburger.svg'
+import Menu from '../../public/icons/menu.svg'
+import HomeIndicator from '../../public/icons/homeIndicator.svg'
 
 
 function Navbar() {
@@ -27,7 +28,7 @@ const NavItems:NavItemsType[] = [
         id : 3,
         src : CommingSoon,
         alt : 'comming-soon',
-        title : "CommingSoon",
+        title : "Comming Soon",
         link : "/commingSoon"
     },
     {
@@ -39,7 +40,7 @@ const NavItems:NavItemsType[] = [
     },
     {
         id : 5,
-        src : Hamburger,
+        src : Menu,
         alt : 'menu',
         title : "Menu",
         link : "/"
@@ -47,17 +48,20 @@ const NavItems:NavItemsType[] = [
 ]
 
   return (
-    <div className='flex'>
+    <div className='fixed bottom-0'>
+    <div className='w-[375px] h-[48px] space-x-[46px] mb-0 flex items-center justify-center bg-[#121212]'>
         {NavItems.map(({ id, title, src, alt, link }) => (
-                <div key={id}>
+                <div className='flex flex-col items-center' key={id}>
                     <Image
                      src={src}
                      alt={alt}
-                     width={24}
-                     height={24}/>
-                    <span>{title}</span>
+                     width={20}
+                     height={20}/>
+                    <span className='font-medium text-nb text-grey'>{title}</span>
                 </div>
             ))}
+    </div>
+    <div className='mt-0'><Image src={HomeIndicator} alt='homeIndicator' width={375} height={31.7}/></div>
     </div>
   )
 }

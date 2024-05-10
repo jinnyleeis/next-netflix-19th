@@ -1,11 +1,40 @@
-//메인화면에서 화면 바뀌는 메인 이미지!
-//Image 태그 안에 api로 받아온 이미지 계속 바뀌게끔
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
+import { Movie } from '../types/movies';
 
-
-function Carousel() {
-  return (
-    <div>Carousel</div>
-  )
+interface CarouselProps {
+  movies: Movie[];
 }
 
-export default Carousel
+export const Carousel: React.FC<CarouselProps> = ({ movies }) => {
+  const [currentMovieIndex, setCurrentMovieIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentMovieIndex((prevIndex) =>
+        prevIndex === movies.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 5000); 
+
+    // 컴포넌트가 언마운트되면 interval을 정리
+    return () => clearInterval(interval);
+  }, [movies.length]); // movies 배열의 길이가 변경될 때마다 useEffect가 호출
+
+  return (
+    <div className="w-[375px] h-[395px] mb-[20px] relative ">
+      <div className='w-[375px] h-[395px]'>
+        {movies.length > 0 && (
+          <Image
+            src={`https://image.tmdb.org/t/p/original${movies[currentMovieIndex].backdrop_path}`}
+            alt={movies[currentMovieIndex].title}
+            layout="fill" 
+            objectFit="cover"
+            
+          />
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default Carousel;

@@ -1,6 +1,14 @@
-import Image from 'next/image';
-import styles from './page.module.css';
+"use client";
+import dynamic from "next/dynamic";
 
 export default function Home() {
-  return <div className="font-sans  text-base font-bold underline">default_landing_page</div>;
+  const LandingLogo = dynamic(() => import("./components/LandingLogo"), {
+    ssr: false,
+  });
+
+  return (
+    <div className="flex justify-center">
+      <LandingLogo />
+    </div>
+  );
 }
