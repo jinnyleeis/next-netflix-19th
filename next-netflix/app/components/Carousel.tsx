@@ -4,7 +4,7 @@
 
 function Carousel() {
   return (
-    <div>Carousel</div>
+    <div className="w-[375px] h-[415px]">Carousel</div>
   )
 }
 

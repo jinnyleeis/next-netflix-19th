@@ -4,8 +4,8 @@ import logo from '../../public/icons/logos_netflix-icon.svg'
 function Header() {
 const Menu = ['Tv Shows' ,'Movies', 'My List']
   return (
-    <div>
-        <div>
+    <div className='fixed top-[24px] flex justify-center items-center w-[375px] h-[57px]'>
+        <div className='mr-[25px]'>
             <Image
             src = {logo}
             alt='logo'
@@ -13,11 +13,11 @@ const Menu = ['Tv Shows' ,'Movies', 'My List']
             height={57}
             />
         </div>
-        <div>
+        <div className='flex space-x-[25px]'>
             {
                 Menu.map((menu) => {
                     return(
-                        <span key={menu}>
+                        <span className='font-normal text-base'key={menu}>
                             {menu}
                         </span>
                     )
