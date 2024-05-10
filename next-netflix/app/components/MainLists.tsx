@@ -1,9 +1,36 @@
-//main/pages.tsx에서 map으로 재활용 할 수 있게 끔 컴포넌트로 뺌
+import Image from 'next/image';
+import { Movie } from '../types/movies';
+import styles from './slide.module.css';
 
-function MainLists() {
-  return (
-    <div>MainLists</div>
-  )
+interface MainListProps {
+  movies: Movie[];
 }
 
-export default MainLists
+const MainLists: React.FC<MainListProps> = ({ movies }) => {
+  return (
+    <div className={styles.scrollContainer}>
+      {movies.map((movie) => {
+        if (!movie.backdrop_path) {
+          return null;
+        }
+
+        return (
+          <div className={styles.imageContainer} key={movie.id}>
+            {movie.backdrop_path && (
+              <Image
+                src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
+                alt={movie.title}
+                width={200}
+                height={300}
+                layout="fixed"
+              />
+            )}
+            <h3>{movie.title}</h3>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+export default MainLists;
