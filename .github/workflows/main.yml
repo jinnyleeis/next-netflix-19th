@@ -18,12 +18,12 @@ jobs:
         id: push_directory
         uses: cpina/github-action-push-to-another-repository@master
         env:
-          API_TOKEN_GITHUB: ${{ DEPLOY_TOKEN_ }}
+          API_TOKEN_GITHUB: ${{ secrets.DEPLOY_TOKEN }}
         with:
           source-directory: 'output'
           destination-github-username: jinnyleeis
           destination-repository-name: next-netflix-19th-deploy
-          user-email: ${{ wldls317@naver.com }}
+          user-email: ${{ secrets.OFFICIAL_ACCOUNT_EMAIL }}
           commit-message: ${{ github.event.commits[0].message }}
           target-branch: master
       - name: Test get variable exported by push-to-another-repository
