@@ -1,6 +1,5 @@
 {
-  "dependencies": {
-    "node": "^20.13.1",
-    "react-lottie-player": "^2.0.0"
-  }
+	"dependencies": {
+		"react-lottie-player": "^2.0.0"
+	}
 }
