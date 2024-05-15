@@ -36,3 +36,6 @@ body {
 .rounded-full {
   border-radius: 50%;
 }
+.hidden {
+  display: none;
+}

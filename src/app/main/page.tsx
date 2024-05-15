@@ -1,7 +1,6 @@
 'use client';
 
 import Header from '../components/Header';
-import Navbar from '../components/Navbar';
 import Controller from '../components/Controller';
 import Carousel from '../components/Carousel';
 import MovieList from '../components/MainLists';
@@ -67,7 +66,6 @@ export default function Main() {
           />
         </div>
       ))}
-      <Navbar />
     </div>
   );
 }

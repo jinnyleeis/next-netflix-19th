@@ -1,3 +1,5 @@
+'use client';
+
 import { NavItemsType } from '../../types';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -7,6 +9,7 @@ import CommingSoon from '../../public/icons/commingSoon.svg';
 import Download from '../../public/icons/download.svg';
 import Menu from '../../public/icons/menu.svg';
 import HomeIndicator from '../../public/icons/homeIndicator.svg';
+import { usePathname } from 'next/navigation';
 
 function Navbar() {
   const NavItems: NavItemsType[] = [
@@ -15,7 +18,7 @@ function Navbar() {
       src: Home,
       alt: 'home',
       title: 'Home',
-      link: '/',
+      link: '/main',
     },
     {
       id: 2,
@@ -47,13 +50,38 @@ function Navbar() {
     },
   ];
 
+  const pathname = usePathname();
+  console.log(pathname);
+
+  let navbarClass;
+  if (pathname === '/') {
+    navbarClass = 'hidden';
+  } else {
+    navbarClass = '';
+  }
+
   return (
-    <div className="fixed bottom-0">
+    <div className={`fixed bottom-0 ${navbarClass}`}>
       <div className="mb-0 flex h-[44px] w-[375px] items-center justify-center space-x-[46px] bg-[#121212]">
         {NavItems.map(({ id, title, src, alt, link }) => (
           <Link href={link} key={id} className="flex flex-col items-center">
-            <Image src={src} alt={alt} width={20} height={20} />
-            <span className="text-nb font-medium text-grey">{title}</span>
+            {/* 이미지 색상은 안 변하므로 이 부분 해결 필요 */}
+            <Image
+              src={src}
+              alt={alt}
+              width={20}
+              height={20}
+              className={pathname === link ? 'text-white' : 'text-grey'}
+            />
+            <span
+              className={
+                pathname === link
+                  ? 'text-white text-nb font-medium'
+                  : 'text-nb font-medium text-grey'
+              }
+            >
+              {title}
+            </span>
           </Link>
         ))}
       </div>
