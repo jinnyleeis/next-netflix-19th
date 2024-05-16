@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
-
+import Navbar from './components/Navbar'; 
 
 export const metadata: Metadata = {
   title: 'next-netflix-19',
@@ -14,7 +14,10 @@ export default function RootLayout({
 }>) {
   return (
     <html>
-      <body>{children}</body>
+      <body>
+        {children}
+        <Navbar />
+      </body>
     </html>
   );
 }
