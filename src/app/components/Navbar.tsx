@@ -4,7 +4,7 @@ import { NavItemsType } from '../../types';
 import Image from 'next/image';
 import Link from 'next/link';
 import Home from '../../public/icons/home.svg';
-import Search from '../../public/icons/search.svg';
+import Search from '../../public/icons/nav-search.svg';
 import CommingSoon from '../../public/icons/commingSoon.svg';
 import Download from '../../public/icons/download.svg';
 import Menu from '../../public/icons/menu.svg';
