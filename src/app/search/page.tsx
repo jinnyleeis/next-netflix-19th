@@ -73,15 +73,23 @@ const [error, setError] = useState('');
     </div>
     <div>Top Searches</div>
 
-    {movies.map((movieList, index) => (
-  <div key={index}>
-    {movieList.map((movie, movieIndex) => (
-      <SearchLists key={movieIndex} movie={movie} />
-    ))}
-  </div>
-))}
-
-
+    {inputValue.trim() === '' ? (
+      movies.map((movieList, index) => (
+        <div key={index}>
+          {movieList.map((movie, movieIndex) => (
+          <SearchLists key={movieIndex} movie={movie} />
+          ))}
+        </div>
+      ))
+      ) : 
+      (movies
+        .flat()
+        .filter(movie => movie.title.toLowerCase().includes(inputValue.toLowerCase()))
+        .map((filteredMovie, index) => (
+          <SearchLists key={index} movie={filteredMovie} />
+        ))
+      )
+    }
   </div>
 )
 }
