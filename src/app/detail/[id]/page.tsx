@@ -3,6 +3,7 @@
 import { getMovieDetailsById } from '../../utils/movieAPI';
 import { Movie } from '../../types/movies';
 import Image from 'next/image';
+import Play from '@/public/icons/play.svg'
 
 interface DetailProps {
   params: { id: string };
@@ -16,15 +17,25 @@ export async function Detail({ params }: DetailProps) {
   return (
     <div className='w-[375px] h-[768px]'>
       {/*<h1>Movie ID: {params.id}</h1>*/}
-      <Image
-        src={movieDetail.backdrop_path ? url : ''}
-        width={800}
-        height={1200}
-        alt="movie poster"
-        className="w-full"
-      />
-       <h2 className="ml-[16px] mt-[22px] text-[20.92px] font-bold">{movieDetail.title}</h2>
-      <h1>{movieDetail.overview}</h1>
+      <div className="w-[375px] h-[415px] overflow-hidden relative">
+        <Image
+          src={movieDetail.backdrop_path ? url : ''}
+          alt="movie poster"
+          fill
+          sizes="100vw"
+          className="object-cover"
+          />
+      </div>
+      <button className='flex items-center justify-center bg-[#C4C4C4] rounded-md w-[303px] h-[45px] gap-2.5 cursor-pointer border-none mx-auto mt-[13px] mb-[32px]'>
+        <Image
+        src={Play}
+        alt='play'
+        width={18}
+        height={21.6}/>
+        <span className='font-semibold text-[#000000] text-play'>Play</span>
+      </button>
+      <h2 className="ml-[32px] text-[26.75px] font-bold">{movieDetail.title}</h2>
+      <div className='mt-[24px] mx-auto w-[311px] h-[170px] overflow-y-auto text-[11.14px]/[14.17px] font-normal'>{movieDetail.overview}</div>
       {/* ID에 따른 정보 렌더링 */}
     </div>
   );

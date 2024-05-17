@@ -21,13 +21,14 @@ export const Carousel: React.FC<CarouselProps> = ({ movies }) => {
 
   return (
     <div className="relative mb-[20px] h-[395px] w-[375px] ">
-      <div className="h-[395px] w-[375px]">
-        {movies.length > 0 && (
+    <div className="w-[375px] h-[415px] overflow-hidden relative">
+          {movies.length > 0 && (
           <Image
             src={`https://image.tmdb.org/t/p/original${movies[currentMovieIndex].backdrop_path}`}
             alt={movies[currentMovieIndex].title}
-            layout="fill"
-            objectFit="cover"
+            fill
+            sizes="100vw"
+            className="object-cover"
           />
         )}
       </div>
