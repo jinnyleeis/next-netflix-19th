@@ -18,7 +18,7 @@ export default async function Main() {
     const movies = await fetchAllCategories(); 
 
     return (
-      <div className="h-[1070px] w-[375px] overflow-y-auto ">
+      <div className="h-[1000px] w-[375px] overflow-y-auto ">
         <Header />
         <Carousel movies={movies[0]} />
         <Controller />
