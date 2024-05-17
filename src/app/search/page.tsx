@@ -42,7 +42,7 @@ export default function Search() {
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
           placeholder="Search for a show, movie, genre, etc."
-          className='h-[31px] w-[270px] bg-[#424242] text-[#C4C4C4] placeholder:text-[#C4C4C4]'
+          className='h-[31px] w-[270px] bg-[#424242] text-[#C4C4C4] placeholder:text-[#C4C4C4] focus:outline-none'
         />
         <Image
           src={deleteIcon}
