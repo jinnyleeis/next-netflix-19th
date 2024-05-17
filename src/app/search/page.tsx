@@ -14,7 +14,11 @@ export default function Search() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('/api');
+        const response = await fetch('/api',{
+          headers: {
+            'X-Client-Request': 'true' 
+            // 클라이언트에서 요청하는 것을 나타내는 헤더 추가(직접 주소창에 입력하는 것과 구분)
+          }});
         const data: Movie[][] = await response.json();
 
         //중복 제거
