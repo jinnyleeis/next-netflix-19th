@@ -2,9 +2,9 @@ import Header from '../components/Header';
 import Controller from '../components/Controller';
 import Carousel from '../components/Carousel';
 import MovieList from '../components/MainLists';
+import MovieIndex from '../components/MovieIndex'; 
 import { Movie } from '../types/movies';
-import {fetchAllCategories } from '../utils/movieAPI';
-
+import { fetchAllCategories } from '../utils/movieAPI';
 
 export default async function Main() {
   const mainListsTitle = [
@@ -15,13 +15,17 @@ export default async function Main() {
   ];
 
   try {
-    const movies = await fetchAllCategories(); 
+    const movies = await fetchAllCategories();
 
     return (
       <div className="h-[1000px] w-[375px] overflow-y-auto ">
         <Header />
-        <Carousel movies={movies[0]} />
-        <Controller />
+        {movies[0] && (
+          <MovieIndex movies={movies[0]}>
+            <Carousel movies={movies[0]} currentMovieIndex={0} />
+            <Controller movies={movies[0]} currentMovieIndex={0} />
+          </MovieIndex>
+        )}
         {movies.map((movieList, index) => (
           <div key={index}>
             <h2 className="ml-[16px] mt-[22px] text-[20.92px] font-bold">
@@ -40,4 +44,3 @@ export default async function Main() {
     return <div>Error</div>;
   }
 }
-
