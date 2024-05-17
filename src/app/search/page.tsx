@@ -50,8 +50,8 @@ const [error, setError] = useState('');
   console.log(movies);
 
   return(
-  <div>
-    <div>
+  <div className='w-[375px] h-[768px] flex flex-col'>
+    <div className='flex flex-row bg-[#424242]'>
       <Image
         src={searchIcon}
         alt= 'search'
@@ -62,34 +62,36 @@ const [error, setError] = useState('');
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
         placeholder="Search for a show, movie, genre, e.t.c."
+        className='w-[270px] bg-[#424242]'
       />
       <Image
         src={deleteIcon}
         alt= 'delete'
-        width={20}
-        height={20}
+        width={15}
+        height={15}
         onClick={() => setInputValue("")}
       />
     </div>
     <div>Top Searches</div>
-
-    {inputValue.trim() === '' ? (
-      movies.map((movieList, index) => (
-        <div key={index}>
-          {movieList.map((movie, movieIndex) => (
-          <SearchLists key={movieIndex} movie={movie} />
-          ))}
-        </div>
-      ))
-      ) : 
-      (movies
+    <div className='h-[497ps] overflow-y-auto'>
+      {inputValue.trim() === '' ? (
+        movies.map((movieList, index) => (
+          <div key={index}>
+            {movieList.map((movie, movieIndex) => (
+            <SearchLists key={movieIndex} movie={movie} />
+            ))}
+          </div>
+        ))
+      ) : (
+        movies
         .flat()
         .filter(movie => movie.title.toLowerCase().includes(inputValue.toLowerCase()))
         .map((filteredMovie, index) => (
           <SearchLists key={index} movie={filteredMovie} />
         ))
       )
-    }
+      }
+    </div>
   </div>
 )
 }
