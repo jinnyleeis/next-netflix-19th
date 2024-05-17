@@ -3,11 +3,11 @@ import { fetchAllCategories } from '../utils/movieAPI';
 
 
 
-
 export async function GET(request: NextRequest) {
   try {
     const movies = await fetchAllCategories();
     return new NextResponse(JSON.stringify(movies), {
+    
       status: 200,
       headers: {
         'Content-Type': 'application/json',
@@ -29,3 +29,4 @@ export async function GET(request: NextRequest) {
     );
   }
 }
+
