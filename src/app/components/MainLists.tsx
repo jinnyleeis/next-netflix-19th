@@ -10,7 +10,7 @@ interface MainListProps {
 
 const MainLists: React.FC<MainListProps> = ({ movies, itemClass, isCircular }) => {
   return (
-    <div className="relative mb-[22px] ml-[12px] mt-[14px] flex w-[375px] overflow-x-auto">
+    <div className="relative mb-[22px] pl-[12px] mt-[14px] flex w-[375px] overflow-x-auto">
       {movies.map((movie) => {
         if (!movie.backdrop_path) {
           return null;
