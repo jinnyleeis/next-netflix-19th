@@ -8,7 +8,7 @@ export default function Error404() {
           404 - Page Not Found
         </h2>
         <p className="ml-[16px]  flex justify-center text-[20.92px]">
-          The page you are looking for doesn't exist.
+          The page you are looking for doesn&apos;t exist.
         </p>
       </main>
     </div>
