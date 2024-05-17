@@ -31,28 +31,31 @@ export default function Search() {
   }, []);
 
   return (
-    <div>
-      <div>
+    <div className='flex flex-col h-[768px] w-[375px]'>
+      <div className='flex flex-row mt-[44px] h-[52px] bg-[#424242] justify-center items-center space-x-[15px]'>
         <Image src={searchIcon} alt="search" width={20} height={20} />
         <input
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
           placeholder="Search for a show, movie, genre, etc."
+          className='h-[31px] w-[270px] bg-[#424242] text-[#C4C4C4] placeholder:text-[#C4C4C4]'
         />
         <Image
           src={deleteIcon}
           alt="delete"
-          width={20}
-          height={20}
+          width={15}
+          height={15}
           onClick={() => setInputValue('')}
         />
       </div>
-      <div>Top Searches</div>
-      {inputValue.trim() === ''
-        ? allMovies.map((movie, index) => <SearchLists key={index} movie={movie} />)
-        : allMovies
-            .filter((movie) => movie.title.toLowerCase().includes(inputValue.toLowerCase()))
-            .map((filteredMovie, index) => <SearchLists key={index} movie={filteredMovie} />)}
+      <h2 className='text-[26.75px] font-bold my-[18px] ml-[10px]'>Top Searches</h2>
+      <div className='h-[573px] overflow-y-auto'>
+        {inputValue.trim() === ''
+          ? allMovies.map((movie, index) => <SearchLists key={index} movie={movie} />)
+          : allMovies
+              .filter((movie) => movie.title.toLowerCase().includes(inputValue.toLowerCase()))
+              .map((filteredMovie, index) => <SearchLists key={index} movie={filteredMovie} />)}
+      </div>
     </div>
   );
 }

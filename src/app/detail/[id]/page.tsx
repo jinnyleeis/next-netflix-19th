@@ -14,9 +14,8 @@ export async function Detail({ params }: DetailProps) {
 
   //ex) interstella : http://localhost:3000/detail/157336
   return (
-    <div>
-      <h1>Movie ID: {params.id}</h1>
-      <h1>{movieDetail.title}</h1>
+    <div className='w-[375px] h-[768px]'>
+      {/*<h1>Movie ID: {params.id}</h1>*/}
       <Image
         src={movieDetail.backdrop_path ? url : ''}
         width={800}
@@ -24,7 +23,7 @@ export async function Detail({ params }: DetailProps) {
         alt="movie poster"
         className="w-full"
       />
-       <h2 className="ml-[16px] mt-[22px] text-[20.92px] font-bold">Preview</h2>
+       <h2 className="ml-[16px] mt-[22px] text-[20.92px] font-bold">{movieDetail.title}</h2>
       <h1>{movieDetail.overview}</h1>
       {/* ID에 따른 정보 렌더링 */}
     </div>

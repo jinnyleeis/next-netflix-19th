@@ -71,7 +71,7 @@ function Navbar() {
               alt={alt}
               width={20}
               height={20}
-              className={pathname === link ? 'text-white' : 'text-grey'}
+              className={pathname === link ? 'text-white' : 'text-grey'  }
             />
             <span
               className={
