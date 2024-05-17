@@ -62,7 +62,7 @@ function Navbar() {
 
   return (
     <div className={`fixed bottom-0 ${navbarClass}`}>
-      <div className="mb-0 flex h-[44px] w-[375px] items-center justify-center space-x-[46px] bg-[#121212]">
+      <div className="mb-0 flex h-[44px] w-[385px] items-center justify-center space-x-[46px] bg-[#121212]">
         {NavItems.map(({ id, title, src, alt, link }) => (
           <Link href={link} key={id} className="flex flex-col items-center">
             {/* 이미지 색상은 안 변하므로 이 부분 해결 필요 */}
