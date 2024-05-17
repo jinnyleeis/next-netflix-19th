@@ -18,6 +18,7 @@ export async function Detail({ params }: DetailProps) {
     <div className='w-[375px] h-[768px]'>
       {/*<h1>Movie ID: {params.id}</h1>*/}
       <div className="w-[375px] h-[415px] overflow-hidden relative">
+      <>
         <Image
           src={movieDetail.backdrop_path ? url : ''}
           alt="movie poster"
@@ -25,6 +26,28 @@ export async function Detail({ params }: DetailProps) {
           sizes="100vw"
           className="object-cover"
           />
+          { /* 그라데이션 */}
+          <div
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              height: '40%',
+              backgroundImage: 'linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent)',
+            }}
+          ></div>
+          <div
+            style={{
+              position: 'absolute',
+              bottom: 0,
+              left: 0,
+              right: 0,
+              height: '40%',
+              backgroundImage: 'linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent)',
+            }}
+          ></div>
+          </>
       </div>
       <button className='flex items-center justify-center bg-[#C4C4C4] rounded-md w-[303px] h-[45px] gap-2.5 cursor-pointer border-none mx-auto mt-[13px] mb-[32px]'>
         <Image
